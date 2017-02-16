@@ -3,46 +3,94 @@ var Board = require("../components/Board.jsx")
 
 var TTTBox = React.createClass({
   getInitialState: function(){
-    return {board: ["","","","","","","","",""], players: ["x", "o"]}
+    return {board: ["","","","","","","","",""], players: ["x", "o"], win: null}
   },
+
+  winGame: function(){
+    if(this.state.board[0]!== ""){
+      if(this.state.board[0]===this.state.board[1] && this.state.board[0] === this.state.board[2]){
+        this.setState({win: "Winner!"})
+      }else if(this.state.board[0]===this.state.board[3] && this.state.board[0] === this.state.board[6]){
+        this.setState({win: "Winner!"})
+        }else if(this.state.board[0]===this.state.board[4] && this.state.board[0] === this.state.board[8]){
+          this.setState({win: "Winner!"})
+    }
+  }
+  
+ if(this.state.board[3]!== ""){
+      if(this.state.board[3] === this.state.board[4] && this.state.board[3] === this.state.board[5]){
+        this.setState({win: "Winner!"})
+      }
+  }
+
+  if(this.state.board[6]!== ""){
+      if (this.state.board[6] === this.state.board[7] && this.state.board[6] === this.state.board[8]){
+        this.setState({win: "Winner!"})
+      }
+  }
+
+  if(this.state.board[1]!== ""){
+      if (this.state.board[1] === this.state.board[4] && this.state.board[1] === this.state.board[7]){
+        this.setState({win: "Winner!"})
+      }
+  }
+
+  if(this.state.board[2]!== ""){
+      if (this.state.board[2] === this.state.board[5] && this.state.board[2] === this.state.board[8]){
+        this.setState({win: "Winner!"})
+      }else if(this.state.board[2]===this.state.board[4] && this.state.board[2] === this.state.board[6]){
+        this.setState({win: "Winner!"})
+      }
+    }
+},
+
 
   addToArray: function(event){
     var buttonSelect = event.target.value
     var lookup = {
       1: () => { 
         this.state.board[0] = this.state.players[0]
+        this.winGame();
         return(this.state.board)
       },
-      2:  () => { 
+      2: () => { 
         this.state.board[1] = this.state.players[0]
+        this.winGame();
         return(this.state.board)
       },
-      3:  () => { 
+      3: () => { 
         this.state.board[2] = this.state.players[0]
+        this.winGame();
         return(this.state.board)
       },
-      4:  () =>{
+      4: () =>{
         this.state.board[3] = this.state.players[0]
+        this.winGame();
         return(this.state.board)
       },
       5: () => { 
         this.state.board[4] = this.state.players[0]
+        this.winGame();
         return(this.state.board)
       },
       6: () => { 
         this.state.board[5] = this.state.players[0]
+        this.winGame();
         return(this.state.board)
       },
-      7:  () => { 
+      7: () => { 
         this.state.board[6] = this.state.players[0]
+        this.winGame();
         return(this.state.board)
       },
-      8:  () => { 
+      8: () => { 
         this.state.board[7] = this.state.players[0]
+        this.winGame();
         return(this.state.board)
       },
-      9:  () => { 
+      9: () => { 
         this.state.board[8] = this.state.players[0]
+        this.winGame();
         return(this.state.board)
       }
     }
@@ -61,7 +109,7 @@ var TTTBox = React.createClass({
     return (
       <div className = "ttt-box">
       <h1>Noughts and Crosses</h1>
-      <Board addToArray = {this.addToArray} board = {this.state.board} />
+      <Board addToArray = {this.addToArray} board = {this.state.board} win ={this.state.win} />
       </div>
       );
   }
