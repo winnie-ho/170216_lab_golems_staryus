@@ -3,10 +3,17 @@ body{
   background-color: #B7D6E4;
 }
 
-button{
-  width: 100px;
-  height: 100px;
+input{
+  width: 150px;
+  height: 150px;
   font-size: 500%;
+  color: #B7D6E4;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ttt-box{
