@@ -19,7 +19,7 @@ input{
 .ttt-box{
   flex-direction: column;
   display: flex;
-  width: 40%;
+  width: 80%;
   align-items: center;
   justify-content: space-around;
   align-content: center;
@@ -33,5 +33,32 @@ input{
   justify-content: center;
   align-content: center;
   align-items: center;
+}
+
+.page{
+  display: flex;
+  flex-direction: row;
+}
+
+.golem{
+  font-family: Tradizional DEMO;
+  font-size: 60px;
+  margin: 50px;
+  width: 200px;
+
+}
+
+
+.staryu{
+  font-family: Tradizional DEMO;
+  font-size: 60px;
+  margin: 50px;
+  width: 200px;
+
+}
+
+h1{
+ font-family: Tradizional DEMO;
+ font-size: 50px; 
 }
 
